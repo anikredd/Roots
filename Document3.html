@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="controller.js"></script>
+    <style>
+        th{
+            
+        }
+    
+    </style>
+<head>
+    
+    
+    
+</head>
+    
+    
+<body>
+   <div ng-controller="twoControl">
+       <input type="text" ng-model="searchMe"/>
+    {{fame}}
+    <div><table>
+    
+        <th>NAME </th>
+        <th>JOB</th>
+        <th>PLACE</th>
+        <th>ZIP</th>
+        <th>JOINED</th>
+        <TH>SALARY</TH>
+        <tr ng-repeat="cust in customers | orderBy:'name' | filter:searchMe">
+        <td>{{cust.name | uppercase}}</td>
+         <td>{{cust.job | uppercase}}</td>
+        <td>{{cust.place | uppercase}}</td>
+         <td>{{cust.zip}}</td>
+        <td>{{cust.joined | date}}</td>
+        <td>{{cust.salary | currency}}</td>
+        
+        </tr>
+    
+    </table>
+</div>
+    </div>
+     
+    
+</body>
+    
+    
+    
+</html>

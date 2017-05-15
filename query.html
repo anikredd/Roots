@@ -1,0 +1,197 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+     <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
+
+
+    
+    
+    <style type="text/css">
+        body{
+            margin:0;
+            padding:0;
+        }
+       
+        #menubar{
+            background-color:lightgrey;
+            width:100%;
+            height:70px;
+        font-size:1.5em;
+         
+        }
+        #run{float:right;
+        margin:20px 50px 10px 10px;}
+   
+        .components ul{
+            list-style:none;
+            margin:0 auto;
+            width:205px;
+            position: relative;
+            
+        
+        }
+        .components li{
+            float:left;
+            font-size:0.8em;
+            border:1px solid grey;
+         padding:2px 3px 2px 2px;
+            border-radius:2px;
+    
+        }
+        .code{
+            height:100%;
+            width:50%;
+            border-right:1px solid grey;
+            
+            margin:0px;
+            padding-bottom: 0px;
+            position: relative;
+            float: left;
+            
+
+        }
+        .code textarea{
+            width:100%;
+            height:100%;
+            margin:none;
+            font-size:1.2em;
+            font-family: monotype;
+            box-sizing: border-box;
+            
+            
+            
+        }
+        .clear{
+            float:none;
+        }
+        .html, .css, .js{
+           position: absolute;
+            right:10px;
+            top:10px;
+        }
+        
+        
+        iframe{
+            float: right;
+            margin:none;
+            width: 49.5%;
+            height: 88.5%;
+            position: absolute;
+            border: none;
+            padding: none;
+        }
+        .selected{
+         background-color:grey;
+        }
+    
+    
+    
+    
+    </style>
+  
+   
+
+</head>
+
+ 
+ 
+    <body ng-controller="firstControl">
+        
+       
+        {{message}}
+        
+    <div class="final">
+        <div id="menubar">
+        CODE PLAYER
+            <button id="run">RUN</button>
+      
+          
+            <div class="components">
+        <ul>
+            <li class="toggle selected">HTML</li>
+            <li class="toggle">CSS</li>
+            <li class="toggle">JS</li>
+            <li class="toggle selected">RESULT</li>
+            </ul>
+        
+            </div>
+        
+        </div>
+        <div class="clear"></div>
+    
+    
+        
+        
+    <div class="code" id="HTMLCode" >
+    <div class="html" >HTML</div>
+    <textarea>Learn Here</textarea></div>
+        
+          
+    <div class="code" id="CSSCode">
+    <div class="css">CSS</div>
+    <textarea>HELLO</textarea></div>
+        
+        
+          
+    <div class="code" id="JSCode">
+    <div class="js">JS</div>
+    <textarea>Learn Here</textarea></div>
+        
+        
+         <div class="code" id="RESULTCode">
+    <div class="result"> &nbsp RESULT</div>
+    <iframe></iframe></div>
+        
+        
+                
+    
+        
+        </div>  
+  
+        
+        
+        <script>
+        var windowHeight=$(window).height();
+      var menuHeight=$("#menubar").height();
+      var codeHeight=windowHeight-menuHeight;
+      $(".code").height(codeHeight+"px");
+            $(".toggle").click(function(){
+            $(this).toggleClass("selected"); 
+             var sai=$(this).html();
+                $("#"+sai+"Code").toggle();
+                               });
+            var divLength=$(".code").filter(function(){
+                return($(this).css("display")!="none");
+            }).length;
+           
+           
+            var width=100/divLength;
+            $(".code").width(width+"%");
+           $("#run").click(function(){
+               
+           })
+                              
+                               
+      
+      
+        
+        
+        
+        </script>      
+  
+
+    
+    </body>
+</html>
+
+
+
+
+
